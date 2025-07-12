@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Progreso de Seguimientos" class="container">
+        <template if:true={haySeguimientos}>
+            <p>
+                {completados} de {total} completados ({porcentaje}%)
+            </p>
+            <div class="centrado">
+                <lightning-progress-bar value={porcentaje} size="medium"></lightning-progress-bar>
+            </div>
+        </template>
+        <template if:false={haySeguimientos}>
+            <p>No hay seguimientos registrados.</p>
+        </template>
+    </lightning-card>
+</template>

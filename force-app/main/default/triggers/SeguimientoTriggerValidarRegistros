@@ -1,0 +1,4 @@
+trigger SeguimientoTriggerValidarRegistros on Seguimiento__c (before insert){
+    SeguimientoTriggerValidarRegistrosHandler.validarPendientes(Trigger.new);
+}
+//Esto quiere decir que antes de insertar uno o más seguimientos tengo que llamar al método que valida la cantidad de pendientes :)
