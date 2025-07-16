@@ -1,6 +1,6 @@
 <template>
-    <lightning-card title="Progreso de Seguimientos" class="container">
-        <template if:true={haySeguimientos}>
+    <lightning-card title="Progreso de Seguimientos">
+        <template class="container" if:true={haySeguimientos}>
             <p>
                 {completados} de {total} completados ({porcentaje}%)
             </p>
@@ -8,8 +8,23 @@
                 <lightning-progress-bar value={porcentaje} size="medium"></lightning-progress-bar>
             </div>
         </template>
-        <template if:false={haySeguimientos}>
-            <p>No hay seguimientos registrados.</p>
+
+        <template class="container" if:false={haySeguimientos}>
+            <p class="centrado">No hay seguimientos registrados.</p>
         </template>
+
+        <template if:true={hayResumen}>
+            <p><strong>Seguimiento más reciente:</strong> {resumen.seguimientoReciente}</p>
+            <p><strong>Clima actual registrado:</strong> {resumen.climaActual}</p>
+            <p><strong>Total de seguimientos en cada etapa:</strong></p>
+            <div class="lista">
+                <p>- Pendientes: {resumen.pendientes}</p>
+                <p>- En proceso: {resumen.enProceso}</p>
+                <p>- Completados: {resumen.completados}</p>
+            </div>
+            
+            
+        </template>
+
     </lightning-card>
 </template>
